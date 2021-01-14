@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import {userContext, tokenContext} from './pages/con'
-import ConText from './pages/ConText'
-export default function App() {
+import React, { memo } from 'react'
+import {renderRoutes} from 'react-router-config'
 
-    useEffect(() => {
+import routes from './router'
+import { HashRouter } from 'react-router-dom'
 
-    })
+import AppHeader from '@@/src/components/app-header'
+import AppFooter from '@@/src/components/app-footer'
+
+
+export default memo(function App() {
     return (
-        <div>
-        hello
-            <userContext.Provider value={{user: '野猪'}}>
-                <tokenContext.Provider value={{token: '佩奇'}}>
-                    <ConText />
-                </tokenContext.Provider>
-            </userContext.Provider>
-        </div>
+        <HashRouter>
+            <AppHeader></AppHeader>
+            {renderRoutes(routes)}
+            <AppFooter></AppFooter>
+        </HashRouter>
     )
-}
+})
