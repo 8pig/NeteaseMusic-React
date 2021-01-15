@@ -6,17 +6,22 @@ import { NavLink } from 'react-router-dom'
 import {
     HeaderWrapper
 } from './style';
+import {
+    headerLinks
+} from '@/common/local-data';
 export default memo(function AppHeader() {
     return (
         <HeaderWrapper>
             <div className="content wrap-v1">
                 <h1 className="wrap-left">
-                    <a className="logo" href="/#/"></a>
+                    <a className="logo" href="/#/"> </a>
                     <div className="wrap-nav">
-                    <NavLink to="/">发现音乐</NavLink>
-                    <NavLink to="/mine">我的音乐</NavLink>
-                    <NavLink to="/friend">我的好友</NavLink>
-                </div>
+                        {
+                            headerLinks.map((item) => {
+                                return ( <NavLink exact to={item.link} key={item.title}>{item.title}</NavLink>)
+                            })
+                        }
+                    </div>
 
                 </h1>
 
