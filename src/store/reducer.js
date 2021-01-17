@@ -5,9 +5,7 @@ import {
 import {
     reducer as recommendReducer
 } from '../pages/descover/c-page/recommend/store';
-// import {
-//     reducer as playerReducer
-// } from '../pages/player/store';
+
 
 const cReducer = combineReducers({
     recommend: recommendReducer,

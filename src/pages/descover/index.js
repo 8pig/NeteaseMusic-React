@@ -1,18 +1,19 @@
 import React, { memo, useEffect } from 'react';
+import { getTopBannerAction } from './c-page/recommend/store/actionCreators';
 
-import request from '@/services/request';
+import { connect } from 'react-redux';
+import Recommend from './c-page/recommend'
 
-export default memo(function Descover() {
-    useEffect(() => {
-        request({
-            url: '/banner'
-        }).then(res => {
-            console.log(res);
-        })
-    }, [])
+
+
+function Descover(props) {
+
     return (
         <div>
             Descover
+            <Recommend />
         </div>
     )
-})
+}
+export default memo(Descover)
+
