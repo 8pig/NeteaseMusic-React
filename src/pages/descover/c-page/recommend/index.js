@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 
 
 function Recommend(props) {
-    // const { getBanners } = props;
-    // useEffect(() => {
-    //     getBanners();
-    // }, [getBanners])
+    const { getBanners, topBanners } = props;
+    useEffect(() => {
+        getBanners();
+    }, [getBanners])
     return (
         <div>
-            recommend
+            recommend {topBanners.length}
         </div>
     )
 }
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
         dispatch(getTopBannerAction())
     }
 })
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Recommend))
+export default connect(mapStateToProps, mapDispatchToProps)(Recommend)
