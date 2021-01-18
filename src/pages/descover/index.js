@@ -22,7 +22,6 @@ function Descover(props) {
                     }
                 </TopMenu>
             </WrapDiv>
-
             { renderRoutes(route.routes) }
         </div>
     )

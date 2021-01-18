@@ -1,31 +1,11 @@
-import React, { memo, useEffect } from 'react';
-import { getTopBannerAction } from './store/actionCreators';
-
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import React, { memo } from 'react';
+import TabBanner from './c-cpns/tab-banner';
 
 function Recommend(props) {
 
-    const { topBanners } = useSelector(state => ({
-      topBanners: state.getIn(['recommend', 'topBanners'])
-    }), shallowEqual)
-
-    const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(getTopBannerAction());
-    }, [dispatch])
-
     return (
         <div>
-            recommend { topBanners.length }
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
-            <p>d</p>
+            <TabBanner />
         </div>
     )
 }
