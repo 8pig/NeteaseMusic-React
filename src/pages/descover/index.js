@@ -1,17 +1,29 @@
-import React, { memo, useEffect } from 'react';
-import { getTopBannerAction } from './c-page/recommend/store/actionCreators';
+import React, { memo } from 'react';
+import { renderRoutes } from 'react-router-config';
+import { NavLink } from 'react-router-dom';
+import { dicoverMenu } from '@/common/local-data';
 
-import { connect } from 'react-redux';
-import Recommend from './c-page/recommend'
-
-
+import { TopMenu, WrapDiv } from './style';
 
 function Descover(props) {
-
+    const { route } = props;
     return (
         <div>
-            Descover
-            <Recommend />
+            <WrapDiv>
+                <TopMenu className="wrap-v1">
+                    {
+                        dicoverMenu.map(item => {
+                            return (
+                                <div className="item" key={item.title}>
+                                    <NavLink to={item.link}> {item.title} </NavLink>
+                                </div>
+                            )
+                        })
+                    }
+                </TopMenu>
+            </WrapDiv>
+
+            { renderRoutes(route.routes) }
         </div>
     )
 }

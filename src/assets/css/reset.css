@@ -443,3 +443,13 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+.wrap-v1 {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.wrap-v2 {
+  width: 980px;
+  margin: 0 auto;
+}

@@ -1,12 +1,33 @@
-import Descover from "@/pages/descover";
+import React from 'react';
+import Descover from "@@/src/pages/descover";
 import Friend from "@/pages/friend";
 import Mine from "@/pages/mine";
+import {
+    Redirect
+} from 'react-router-dom';
 
-const routes = [
-    {
+const routes = [{
         path: '/',
-        component: Descover,
-        exact: true
+        exact: true,
+        render: () => ( <
+            Redirect to = "/discover" / >
+        )
+    },
+    {
+        path: "/discover",
+        component: React.lazy(() => import("@@/src/pages/descover")),
+        routes: [{
+                path: "/discover",
+                exact: true,
+                render: () => ( <
+                    Redirect to = "/discover/recommend" / >
+                )
+            },
+            {
+                path: "/discover/recommend",
+                component: React.lazy(() => import("@/pages/descover/c-page/recommend"))
+            },
+        ]
     },
     {
         path: '/friend',
