@@ -1,6 +1,6 @@
 import "@/assets/css/reset.css";
 import React, { memo, Suspense } from 'react'
-import {renderRoutes} from 'react-router-config'
+import { renderRoutes} from 'react-router-config'
 import { Provider } from 'react-redux';
 
 

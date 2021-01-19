@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 
 import { getTopBannerAction } from '../../store/actionCreators';
 
@@ -7,6 +7,9 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { Carousel } from 'antd';
 
+import {
+    GS
+} from './style';
 
 function TabBox(props) {
     const { topBanners } = useSelector(state => ({
@@ -16,12 +19,22 @@ function TabBox(props) {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getTopBannerAction());
-    }, [dispatch])
+    }, [dispatch]);
+    const [img, setImg] = useState(0)
+
+    const beforeChange = useCallback((from, to) => {
+        console.log(from, to);
+        if(topBanners[to] && topBanners[to].imageUrl){
+            setImg(to)
+        }
+    },[topBanners])
+    const bgImg = topBanners[img] && topBanners[img].imageUrl + "?imageView&blur=40x20";
+
     return (
-        <div>
+        <GS bgImg={bgImg}>
             <div className="wrap-v1">
                 <div className="wrap-v2">
-                <Carousel effect="fade" autoplay effect="fade">
+                <Carousel effect="fade" autoplay  beforeChange={beforeChange}>
                         {
                             topBanners.map(item => {
                                 return (
@@ -34,7 +47,7 @@ function TabBox(props) {
                     </Carousel>
                 </div>
             </div>
-        </div>
+        </GS>
     )
 }
 export default memo(TabBox)

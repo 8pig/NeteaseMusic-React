@@ -3,25 +3,14 @@ import { renderRoutes } from 'react-router-config';
 import { NavLink } from 'react-router-dom';
 import { dicoverMenu } from '@/common/local-data';
 
-import { TopMenu, WrapDiv } from './style';
+import {} from './style';
+import Banner from './banner';
 
 function Descover(props) {
     const { route } = props;
     return (
         <div>
-            <WrapDiv>
-                <TopMenu className="wrap-v1">
-                    {
-                        dicoverMenu.map(item => {
-                            return (
-                                <div className="item" key={item.title}>
-                                    <NavLink to={item.link}> {item.title} </NavLink>
-                                </div>
-                            )
-                        })
-                    }
-                </TopMenu>
-            </WrapDiv>
+           <Banner />
             { renderRoutes(route.routes) }
         </div>
     )
