@@ -23,7 +23,7 @@ function TabBox(props) {
     const [img, setImg] = useState(0)
 
     const beforeChange = useCallback((from, to) => {
-        console.log(from, to);
+
         if(topBanners[to] && topBanners[to].imageUrl){
             setImg(to)
         }
