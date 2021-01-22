@@ -15,7 +15,7 @@ function RecommendModule(props) {
 
     useEffect(() => {
         dispatch(getAlbumActon())
-    }, [getAlbumActon])
+    }, [getAlbumActon]);
     return (
         <div className="wrap-v2">
             {
