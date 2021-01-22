@@ -2,7 +2,8 @@ import * as actionTypes from './constants';
 import { Map, fromJS } from 'immutable';
 const defaultState = Map({
     topBanners: [],
-    albums: []
+    albums: [],
+    currentSong: {}
 })
 
 function reducer(state = defaultState, action){
