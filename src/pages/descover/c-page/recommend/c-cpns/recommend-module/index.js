@@ -28,13 +28,13 @@ function RecommendModule(props) {
         player.current.play();
         dispatch(getAlbumActon());
     }, [getAlbumActon]);
-    const onUpdate= useCallback((e) => {
+    const onUpdate= (e) => {
         if(isSing){
-            setsliderProcess(e.target.currentTime  / e.target.duration * 100)
-            setCurrentTime(currentTime )
+            setCurrentTime(currentTime)
             setDt(e.target.duration)
+            setsliderProcess(e.target.currentTime  / dt * 100)
         }
-    }, [sliderProcess])
+    }
     const playHander = () => {
         if(playState){
             player.current.pause();
@@ -44,14 +44,20 @@ function RecommendModule(props) {
             setPlayState(true)
         }
     }
-    function onChange(value) {
-        console.log('onChange: ', value);
-        setsliderProcess(value)
+    // const onChange = useCallback((value)=> {
+    //     setsliderProcess(value/ dt * 100)
+    //     setIsSing(false)
+    // }, [])
+    const onChange = (value)=> {
+        // setsliderProcess(value / dt * 100)
+        console.log(value, 1)
         setIsSing(false)
-    }
-    function onAfterChange(value) {
-        console.log('onAfterChange: ', value);
         setsliderProcess(value)
+    }
+    const onAfterChange = value => {
+        player.current.currentTime = value/100 * dt
+        setsliderProcess(value/100 * dt)
+        console.log(value, 2)
         setIsSing(true)
     }
 
