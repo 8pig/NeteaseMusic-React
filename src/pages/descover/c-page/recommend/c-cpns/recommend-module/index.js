@@ -50,14 +50,12 @@ function RecommendModule(props) {
     // }, [])
     const onChange = (value)=> {
         // setsliderProcess(value / dt * 100)
-        console.log(value, 1)
         setIsSing(false)
         setsliderProcess(value)
     }
     const onAfterChange = value => {
         player.current.currentTime = value/100 * dt
         setsliderProcess(value/100 * dt)
-        console.log(value, 2)
         setIsSing(true)
     }
 

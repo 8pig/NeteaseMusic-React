@@ -9,9 +9,7 @@ import {
 const routes = [{
         path: '/',
         exact: true,
-        render: () => ( <
-            Redirect to = "/discover" / >
-        )
+        render: () => ( <Redirect to = "/discover" / >)
     },
     {
         path: "/discover",
